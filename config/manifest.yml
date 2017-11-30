@@ -1,0 +1,12 @@
+stack: cflinuxfs2
+buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.3"
+services:
+- logger-arq-GF-db
+applications:
+- name: logger-arq-GF-app
+  instances: 1
+  memory: 512M
+  disk_quota: 512M
+  routes:
+  - route: logger-arq-GF-app.mybluemix.net
+  command: rails server -p $PORT
